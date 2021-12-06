@@ -1,0 +1,47 @@
+<div>POST to https://qa-scooter.praktikum-services.ru/api/v1/orders</div>
+
+<h4>Body</h4>
+<div>
+    <pre class="preformated-text">
+    {
+    &quot;firstName&quot;: &quot;Overtkill&quot;,
+    &quot;lastName&quot;: &quot;Omnitrix&quot;,
+    &quot;address&quot;: &quot;4107 Werner Loop, Napoleonstad, ND 09566-1347&quot;,
+    &quot;metroStation&quot;: &quot;Korea (Democratic People&#39;s Republic of)&quot;,
+    &quot;phone&quot;: &quot;(699) 598-0100&quot;,
+    &quot;rentTime&quot;: 3,
+    &quot;deliveryDate&quot;: &quot;2021-12-06&quot;,
+    &quot;comment&quot;: &quot;Though this be madness, yet there is method in &#39;t.&quot;,
+    &quot;color&quot;: [
+        &quot;BLACK&quot;,
+        &quot;GRAY&quot;
+    ]
+}
+    </pre>
+</div>
+
+<h4>Headers</h4>
+<div>
+        <div>Accept: */*</div>
+        <div>Content-Type: application/json</div>
+</div>
+
+
+
+<h4>Curl</h4>
+<div>
+curl -v -X POST &#39;https://qa-scooter.praktikum-services.ru/api/v1/orders&#39; -H &#39;Accept: */*&#39; -H &#39;Content-Type: application/json&#39; -d &#39;{
+    &quot;firstName&quot;: &quot;Overtkill&quot;,
+    &quot;lastName&quot;: &quot;Omnitrix&quot;,
+    &quot;address&quot;: &quot;4107 Werner Loop, Napoleonstad, ND 09566-1347&quot;,
+    &quot;metroStation&quot;: &quot;Korea (Democratic People&#39;s Republic of)&quot;,
+    &quot;phone&quot;: &quot;(699) 598-0100&quot;,
+    &quot;rentTime&quot;: 3,
+    &quot;deliveryDate&quot;: &quot;2021-12-06&quot;,
+    &quot;comment&quot;: &quot;Though this be madness, yet there is method in &#39;t.&quot;,
+    &quot;color&quot;: [
+        &quot;BLACK&quot;,
+        &quot;GRAY&quot;
+    ]
+}&#39;
+</div>
