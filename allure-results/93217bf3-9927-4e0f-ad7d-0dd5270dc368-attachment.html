@@ -1,0 +1,45 @@
+<div>POST to https://qa-scooter.praktikum-services.ru/api/v1/orders</div>
+
+<h4>Body</h4>
+<div>
+    <pre class="preformated-text">
+    {
+    &quot;firstName&quot;: &quot;Red Cy-Gor Fist&quot;,
+    &quot;lastName&quot;: &quot;Longevity&quot;,
+    &quot;address&quot;: &quot;5641 Langworth Circles, Wittingview, MA 41479-1785&quot;,
+    &quot;metroStation&quot;: &quot;Tajikistan&quot;,
+    &quot;phone&quot;: &quot;471.823.1890&quot;,
+    &quot;rentTime&quot;: 5,
+    &quot;deliveryDate&quot;: &quot;2021-12-06&quot;,
+    &quot;comment&quot;: &quot;Do you think I am easier to be played on than a pipe?&quot;,
+    &quot;color&quot;: [
+        &quot;GRAY&quot;
+    ]
+}
+    </pre>
+</div>
+
+<h4>Headers</h4>
+<div>
+        <div>Accept: */*</div>
+        <div>Content-Type: application/json</div>
+</div>
+
+
+
+<h4>Curl</h4>
+<div>
+curl -v -X POST &#39;https://qa-scooter.praktikum-services.ru/api/v1/orders&#39; -H &#39;Accept: */*&#39; -H &#39;Content-Type: application/json&#39; -d &#39;{
+    &quot;firstName&quot;: &quot;Red Cy-Gor Fist&quot;,
+    &quot;lastName&quot;: &quot;Longevity&quot;,
+    &quot;address&quot;: &quot;5641 Langworth Circles, Wittingview, MA 41479-1785&quot;,
+    &quot;metroStation&quot;: &quot;Tajikistan&quot;,
+    &quot;phone&quot;: &quot;471.823.1890&quot;,
+    &quot;rentTime&quot;: 5,
+    &quot;deliveryDate&quot;: &quot;2021-12-06&quot;,
+    &quot;comment&quot;: &quot;Do you think I am easier to be played on than a pipe?&quot;,
+    &quot;color&quot;: [
+        &quot;GRAY&quot;
+    ]
+}&#39;
+</div>

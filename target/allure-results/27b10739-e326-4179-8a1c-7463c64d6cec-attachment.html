@@ -1,0 +1,45 @@
+<div>POST to https://qa-scooter.praktikum-services.ru/api/v1/orders</div>
+
+<h4>Body</h4>
+<div>
+    <pre class="preformated-text">
+    {
+    &quot;firstName&quot;: &quot;Box Eyes&quot;,
+    &quot;lastName&quot;: &quot;Human physical perfection&quot;,
+    &quot;address&quot;: &quot;344 Renner Isle, New Sherwood, UT 51967&quot;,
+    &quot;metroStation&quot;: &quot;Serbia&quot;,
+    &quot;phone&quot;: &quot;(117) 202-7328&quot;,
+    &quot;rentTime&quot;: 5,
+    &quot;deliveryDate&quot;: &quot;2021-12-06&quot;,
+    &quot;comment&quot;: &quot;What a piece of work is man! how noble in reason! how infinite in faculty! in form and moving how express and admirable! in action how like an angel! in apprehension how like a god! the beauty of the world, the paragon of animals! .&quot;,
+    &quot;color&quot;: [
+        &quot;GRAY&quot;
+    ]
+}
+    </pre>
+</div>
+
+<h4>Headers</h4>
+<div>
+        <div>Accept: */*</div>
+        <div>Content-Type: application/json</div>
+</div>
+
+
+
+<h4>Curl</h4>
+<div>
+curl -v -X POST &#39;https://qa-scooter.praktikum-services.ru/api/v1/orders&#39; -H &#39;Accept: */*&#39; -H &#39;Content-Type: application/json&#39; -d &#39;{
+    &quot;firstName&quot;: &quot;Box Eyes&quot;,
+    &quot;lastName&quot;: &quot;Human physical perfection&quot;,
+    &quot;address&quot;: &quot;344 Renner Isle, New Sherwood, UT 51967&quot;,
+    &quot;metroStation&quot;: &quot;Serbia&quot;,
+    &quot;phone&quot;: &quot;(117) 202-7328&quot;,
+    &quot;rentTime&quot;: 5,
+    &quot;deliveryDate&quot;: &quot;2021-12-06&quot;,
+    &quot;comment&quot;: &quot;What a piece of work is man! how noble in reason! how infinite in faculty! in form and moving how express and admirable! in action how like an angel! in apprehension how like a god! the beauty of the world, the paragon of animals! .&quot;,
+    &quot;color&quot;: [
+        &quot;GRAY&quot;
+    ]
+}&#39;
+</div>
