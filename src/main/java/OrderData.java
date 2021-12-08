@@ -14,10 +14,10 @@ public class OrderData {
     public final int rentTime;
     public final String deliveryDate;
     public final String comment;
-    public final String[] color;
+    public final ColorsOfScooter[] color;
 
     public OrderData(String firstName, String lastName, String address, String metroStation, String phone, int rentTime,
-                 String deliveryDate, String comment, String[] color) {
+                 String deliveryDate, String comment, ColorsOfScooter[] color) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
@@ -29,7 +29,7 @@ public class OrderData {
         this.color = color;
     }
 
-    public static OrderData getRandomOrder(String whatColor){
+    public static OrderData getRandomOrder(ColorsOfScooter whatColor){
         Faker faker = new Faker();
         Random random = new Random();
         OrderData order = null;
@@ -41,20 +41,20 @@ public class OrderData {
         final int rentTime = random.nextInt(10)+1;
         final String deliveryDate = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime());
         final String comment = faker.shakespeare().hamletQuote();
-        if(whatColor.equals("ALL")) {
-            final String[] color = {"BLACK", "GRAY"};
+        if(whatColor == ColorsOfScooter.ALL) {
+            final ColorsOfScooter[] color = {ColorsOfScooter.BLACK, ColorsOfScooter.GRAY};
             order = new OrderData(firstName, lastName, address, metroStation, phone, rentTime, deliveryDate, comment, color);
         }
-        else if(whatColor.equals("BLACK")){
-            final String[] color = {"BLACK"};
+        else if(whatColor == ColorsOfScooter.BLACK){
+            final ColorsOfScooter[] color = {ColorsOfScooter.BLACK};
             order = new OrderData(firstName, lastName, address, metroStation, phone, rentTime, deliveryDate, comment, color);
         }
-        else if(whatColor.equals("GRAY")){
-            final String[] color = {"GRAY"};
+        else if(whatColor == ColorsOfScooter.GRAY){
+            final ColorsOfScooter[] color = {ColorsOfScooter.GRAY};
             order = new OrderData(firstName, lastName, address, metroStation, phone, rentTime, deliveryDate, comment, color);
         }
-        else if(whatColor.equals("NONE")){
-            final String[] color = null;
+        else if(whatColor == ColorsOfScooter.NONE){
+            final ColorsOfScooter[] color = null;
             order = new OrderData(firstName, lastName, address, metroStation, phone, rentTime, deliveryDate, comment, color);
         }
         return order;

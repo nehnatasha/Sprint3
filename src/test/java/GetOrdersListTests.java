@@ -21,23 +21,16 @@ public class GetOrdersListTests {
     @DisplayName("Тест для получения списка заказа")
     public void positiveGetOrdersListTest() {
         CourierData courier = CourierData.getRandomCourier();
-        OrderData order = OrderData.getRandomOrder("ALL");
+        OrderData order = OrderData.getRandomOrder(ColorsOfScooter.ALL);
         Response responseCreateOrder = orderClient.createOrderResponse(order);
         int orderId = orderClient.getOrderIdByTrack(responseCreateOrder.body().path("track"));
         Response response = courierClient.courierRegisterResponse(courier);
         int courierId = courierClient.getCourierId(CourierCredentials.from(courier));
-        Response acceptResponse = orderClient.acceptOrderResponse(orderId, courierId);
+        orderClient.acceptOrderResponse(orderId, courierId);
         Response responseGetOrder = orderClient.getOrdersResponse(courierId);
         responseGetOrder.then()
                 .assertThat()
                 .statusCode(200)
                 .body("orders", notNullValue());
-
-//        Сервис не работает, поэтому закоменчен
-//            cancelOrderClient.cancelOrder(response.path("track"))
-//                    .then()
-//                    .assertThat()
-//                    .statusCode(200);
     }
-
 }

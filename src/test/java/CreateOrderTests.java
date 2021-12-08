@@ -11,11 +11,11 @@ import static org.hamcrest.CoreMatchers.notNullValue;
 @RunWith(Parameterized.class)
 public class CreateOrderTests {
 
-    private final String color;
+    private final ColorsOfScooter color;
 
     OrderClient orderClient;
 
-    public CreateOrderTests(String color) {
+    public CreateOrderTests(ColorsOfScooter color) {
         this.color = color;
     }
 
@@ -27,10 +27,10 @@ public class CreateOrderTests {
     @Parameterized.Parameters
     public static Object[][] getOrderData() {
         return new Object[][]{
-                {"BLACK"},
-                {"GRAY"},
-                {"ALL"},
-                {"NONE"},
+                {ColorsOfScooter.BLACK},
+                {ColorsOfScooter.GRAY},
+                {ColorsOfScooter.ALL},
+                {ColorsOfScooter.NONE},
         };
     }
 
@@ -44,11 +44,22 @@ public class CreateOrderTests {
                 .statusCode(201)
                 .and()
                 .body("track", notNullValue());
+    }
 
-//        Закомменчено, так как сервис отмены заказа не работает
-//            cancelOrderClient.cancelOrder(response.path("track"))
-//                    .then()
-//                    .assertThat()
-//                    .statusCode(200);
+    @Test
+    @DisplayName("Успешный тест на отмену заказа")
+    public void canceledOrderPositiveTest() {
+        OrderData order = OrderData.getRandomOrder(color);
+        Response response = orderClient.createOrderResponse(order);
+        response.then()
+                .assertThat()
+                .statusCode(201)
+                .and()
+                .body("track", notNullValue());
+
+        orderClient.cancelOrderResponse(response.path("track"))
+                .then()
+                .assertThat()
+                .statusCode(200);
     }
 }

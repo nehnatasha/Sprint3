@@ -6,9 +6,6 @@ import static io.restassured.RestAssured.given;
 public class OrderClient extends ApiClient{
 
     private final String baseUrl = "api/v1/orders";
-    private final String baseUrlForCancelOrder = "api/v1/orders/cancel";
-    private final String baseUrlTrack = "api/v1/orders/track";
-    private final String baseUrlAcceptOrder = "api/v1/orders/accept/";
 
     @Step("Получение заказов")
     public Response getOrdersResponse(int courierId) {
@@ -37,7 +34,7 @@ public class OrderClient extends ApiClient{
                 .and()
                 .body(id)
                 .when()
-                .put(baseUrlForCancelOrder);
+                .put(baseUrl + "/cancel");
     }
 
     @Step("Получение айди заказа")
@@ -47,7 +44,7 @@ public class OrderClient extends ApiClient{
                 .and()
                 .queryParam("t",trackId)
                 .when()
-                .get(baseUrlTrack);
+                .get(baseUrl + "/track");
         return response.body().path("order.id");
     }
 
@@ -58,6 +55,6 @@ public class OrderClient extends ApiClient{
                 .and()
                 .queryParam("courierId",courierId)
                 .when()
-                .put(baseUrlAcceptOrder + orderId);
+                .put(baseUrl + "/accept/" + orderId);
     }
 }
